@@ -81,6 +81,14 @@ RUN cd /home/test/tools/ && \
     git submodule update --init --recursive && \
     make
 
+# Install IConFuzz
+RUN cd /home/test/tools/ && \
+    git clone https://github.com/infosec-sogang/IConFuzz.git && \
+    cd IConFuzz && \
+    git checkout fc6337afeba09e3354219daca6b79124035d8d7c && \
+    git submodule update --init --recursive && \
+    make
+
 # Add scripts for each tool
 COPY --chown=test:test ./docker-setup/tool-scripts/ /home/test/scripts
 
