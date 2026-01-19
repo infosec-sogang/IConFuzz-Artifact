@@ -73,6 +73,17 @@ ENV GOROOT=/usr/lib/go-1.10
 ENV PATH=$PATH:$GOPATH/bin:$GOROOT/bin
 RUN /home/test/tools/rlf/install_rlf.sh
 
+# Install ilf
+COPY --chown=test:test ./docker-setup/ilf/ /home/test/tools/ilf
+ENV GOPATH=/home/test/tools/ilf/go
+ENV GOROOT=/usr/lib/go-1.10
+ENV PATH=$PATH:$GOPATH/bin
+ENV PATH=$PATH:$GOROOT/bin
+RUN /home/test/tools/ilf/install_ilf.sh
+RUN mv /home/test/tools/ilf/preprocess \
+       /home/test/tools/ilf/go/src/ilf/preprocess
+
+
 # Install Smartian
 RUN cd /home/test/tools/ && \
     git clone https://github.com/SoftSec-KAIST/Smartian.git && \
