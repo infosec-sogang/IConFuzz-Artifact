@@ -11,7 +11,7 @@ from common import BASE_DIR, BENCHMARK_DIR
 IMAGE_NAME = "iconfuzz-artifact"
 MAX_INSTANCE_NUM = 60
 AVAILABLE_BENCHMARKS = ["B-IO", "B-ELSC"]
-SUPPORTED_TOOLS = ["smartian", "SmarTest", "rlf", "IConFuzz"]
+SUPPORTED_TOOLS = ["smartian", "SmarTest", "rlf", "IConFuzz", "ilf"]
 WORKQUEUE = queue.Queue()
 lock = threading.Lock()
 
